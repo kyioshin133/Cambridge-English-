@@ -1,0 +1,149 @@
+/* Base styles and variables */
+:root {
+    --bg-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --accent-color: #0073b1; /* Professional blue tint */
+    --border-color: #e9ecef;
+    --radius: 8px;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Container */
+.credentials-container {
+    max-width: 800px;
+    width: 100%;
+}
+
+.section-title {
+    font-size: 1.75rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.section-subtitle {
+    color: var(--text-secondary);
+    margin-top: 0;
+    margin-bottom: 24px;
+}
+
+.credentials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Card Styling */
+.credential-card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: 24px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.credential-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+/* Header */
+.card-header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.institution-logo {
+    width: 48px;
+    height: 48px;
+    background-color: #f0f2f5;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.credential-info h3 {
+    margin: 0 0 4px 0;
+    font-size: 1.15rem;
+    color: var(--text-primary);
+}
+
+.issuer {
+    margin: 0 0 4px 0;
+    font-weight: 500;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+}
+
+.issue-date {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* Body & Badges */
+.card-body {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-color);
+}
+
+.credential-id {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0 0 12px 0;
+}
+
+.badge-container {
+    display: flex;
+    gap: 8px;
+}
+
+.badge {
+    background-color: #e8f4f8;
+    color: #1d70b8;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Footer & Button */
+.card-footer {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.verify-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.verify-btn:hover {
+    background-color: var(--accent-color);
+    color: #ffffff;
+}
