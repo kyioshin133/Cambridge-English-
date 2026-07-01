@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Registry Lookup</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 40px;
+            background: #f4f6f9;
+        }
+        .search-box {
+            max-width: 400px;
+            margin: 0 auto 30px auto;
+            text-align: center;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .results-container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        .result-card {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: none;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="search-box">
+    <h3>Project Registry Lookup</h3>
+    <input type="text" id="registryInput" placeholder="Enter Registry ID (e.g., PRJ-101)...">
+</div>
+
+<div class="results-container">
+    <div id="resultCard" class="result-card">
+        <h4 id="resTitle"></h4>
+        <p><strong>ID:</strong> <span id="resId"></span></p>
+        <p><strong>Status:</strong> <span id="resStatus"></span></p>
+    </div>
+    <div id="errorMsg" class="error-message">No record found matching that ID.</div>
+</div>
+
+<script>
+    // Mock local database array
+    const registryDatabase = [
+        { id: "PRJ-101", title: "Open Source Analytics Tool", status: "Active" },
+        { id: "PRJ-102", title: "E-Commerce Frontend Template", status: "Completed" }
+    ];
+
+    const inputField = document.getElementById('registryInput');
+    const card = document.getElementById('resultCard');
+    const error = document.getElementById('errorMsg');
+
+    inputField.addEventListener('input', (e) => {
+        const query = e.target.value.trim().toUpperCase();
+        
+        // Clear previous state if input is empty
+        if (!query) {
+            card.style.display = 'none';
+            error.style.display = 'none';
+            return;
+        }
+
+        // Search the array for an exact match
+        const match = registryDatabase.find(item => item.id === query);
+
+        if (match) {
+            document.getElementById('resTitle').innerText = match.title;
+            document.getElementById('resId').innerText = match.id;
+            document.getElementById('resStatus').innerText = match.status;
+            
+            card.style.display = 'block';
+            error.style.display = 'none';
+        } else {
+            card.style.display = 'none';
+            error.style.display = 'block';
+        }
+    });
+</script>
+
+</body>
+</html>
